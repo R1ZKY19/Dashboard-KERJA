@@ -4,7 +4,10 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { Activity, Bot, Calculator, ChevronDown, ClipboardList, FileText, Gamepad2, Hash, Home, Landmark, LayoutDashboard, Menu, Settings, ShieldCheck, Ticket, Users, Wrench, X } from 'lucide-react'
 
-const sections = [
+type MenuItem = readonly [string, string]
+type MenuSection = { title: string; items: MenuItem[] }
+
+const sections: MenuSection[] = [
   { title: 'DASHBOARD', items: [['Overview','/']] },
   { title: 'CATATAN', items: [['Notes','/modules/notes'], ['File Kerja CS','/modules/file-kerja-cs']] },
   { title: 'AI ASSISTANT', items: [['AI Chat','/modules/ai-chat']] },
@@ -17,7 +20,7 @@ const sections = [
   { title: 'KODE GAME', items: [['Filter Kode Game','/modules/filter-kode-game']] },
   { title: 'TIM', items: [['Chat Koordinasi','/modules/chat-koordinasi'], ['Arsip Kesalahan Chat','/modules/arsip-kesalahan-chat'], ['Pengguna Online','/modules/pengguna-online'], ['Pengguna & Akses','/modules/pengguna-akses'], ['Activity Log','/modules/activity-log']] },
   { title: 'SISTEM', items: [['Pengaturan','/modules/pengaturan'], ['Auto Screenshot','/modules/auto-screenshot'], ['Extension Suite','/modules/extension-suite']] },
-] as const
+]
 
 const icons: Record<string, any> = { Overview:LayoutDashboard, Notes:FileText, 'File Kerja CS':ClipboardList, 'AI Chat':Bot, 'Prediksi Togel':Hash, 'Hasil Result Togel':Hash, 'Kalkulator Togel':Calculator, 'KPBI Live':Activity, 'KPBI Cek Member':ShieldCheck, 'Kalkulator Betting':Calculator, 'Kalkulator Parlay':Calculator, 'Kode Tiket':Ticket, 'Hitung Freespin':Calculator, 'Tangkapan Menang':ClipboardList, 'Profil Bank':Landmark, 'RRN QRIS':Hash, 'Pintasan B.QRIS':Home, 'Validasi Rekening':ShieldCheck, 'Data Depo / WD QRIS':ClipboardList, 'Alat Kerja':Wrench, 'Filter Kode Game':Gamepad2, 'Chat Koordinasi':Users, 'Arsip Kesalahan Chat':FileText, 'Pengguna Online':Activity, 'Pengguna & Akses':Users, 'Activity Log':Activity, Pengaturan:Settings, 'Auto Screenshot':ClipboardList, 'Extension Suite':Wrench }
 
