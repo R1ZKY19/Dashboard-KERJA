@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #040d18; color: #e5edf5; }
+body { font-family: Arial, Helvetica, sans-serif; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
+.menu-item { position: relative; border: 1px solid transparent; border-radius: 12px; transition: background .25s ease, border-color .25s ease, color .25s ease, transform .2s ease, box-shadow .25s ease; }
+.menu-item:hover { background: #0b2035; border-color: #1b4058; transform: translateX(3px); }
+.menu-item.active { background: #092235; border-color: #07566a; color: #22d3c5; box-shadow: 0 0 14px rgba(34,211,197,.08), inset 0 0 14px rgba(34,211,197,.03); }
+.menu-item.active::before { content: ""; position: absolute; left: -1px; top: 20%; width: 3px; height: 60%; border-radius: 10px; background: #22d3c5; box-shadow: 0 0 10px rgba(34,211,197,.65); }
+
+.page-enter { animation: pageEnter .35s ease-out both; }
+@keyframes pageEnter { from { opacity: 0; transform: translateY(10px); filter: blur(3px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+.card-enter { animation: cardEnter .4s ease-out both; }
+@keyframes cardEnter { from { opacity: 0; transform: translateY(15px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: #061426; }
+::-webkit-scrollbar-thumb { background: #183047; border-radius: 99px; }
