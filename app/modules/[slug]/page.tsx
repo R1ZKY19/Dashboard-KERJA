@@ -1,7 +1,7 @@
 import ModuleClient from './ModuleClient'
 
 const slugs = [
-  'notes','file-kerja-cs','ai-chat','prediksi-togel','hasil-result-togel','kalkulator-togel','kpbi-live','kpbi-cek-member',
+  'notes','file-kerja-cs','cs-dashboard','ai-chat','prediksi-togel','hasil-result-togel','kalkulator-togel','kpbi-live','kpbi-cek-member',
   'kalkulator-betting','kalkulator-parlay','kode-tiket','hitung-freespin','tangkapan-menang','profil-bank','rrn-qris',
   'pintasan-bqris','validasi-rekening','data-depo-wd-qris','alat-kerja','filter-kode-game','chat-koordinasi',
   'arsip-kesalahan-chat','pengguna-online','pengguna-akses','activity-log','pengaturan','auto-screenshot','extension-suite'
