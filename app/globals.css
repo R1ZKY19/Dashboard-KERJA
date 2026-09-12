@@ -1,9 +1,16 @@
 @import "tailwindcss";
 
-:root { color-scheme: dark; }
+:root {
+  color-scheme: dark;
+  --bg:#0B1420; --bg-2:#101D2E; --surface:#142236; --surface-2:#1A2B42;
+  --card:rgba(20,34,54,.82); --card-solid:#142236; --card-hover:#1B2E48;
+  --border:rgba(255,255,255,.08); --border-light:rgba(255,255,255,.13);
+  --border-active:rgba(56,189,248,.4); --text:#F4F7FB; --text-2:#B4C0D0; --text-3:#7E8DA1;
+  --acc:#2E8FD4; --acc-2:#38BDF8; --cyan:#22D3EE; --green:#34D399; --coral:#F87171; --gold:#F7C843; --purple:#A78BFA;
+}
 * { box-sizing: border-box; }
-html, body { margin: 0; min-height: 100%; background: #040d18; color: #e5edf5; }
-body { font-family: Arial, Helvetica, sans-serif; }
+html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--text); }
+body { font-family: Inter, Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
 button, a { -webkit-tap-highlight-color: transparent; }
 
 .menu-item { position: relative; border: 1px solid transparent; border-radius: 12px; transition: background .25s ease, border-color .25s ease, color .25s ease, transform .2s ease, box-shadow .25s ease; }
@@ -15,6 +22,21 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @keyframes pageEnter { from { opacity: 0; transform: translateY(10px); filter: blur(3px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
 .card-enter { animation: cardEnter .4s ease-out both; }
 @keyframes cardEnter { from { opacity: 0; transform: translateY(15px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+.cs-card { background:var(--card); backdrop-filter:blur(18px) saturate(160%); border:1px solid var(--border); border-radius:20px; padding:20px; box-shadow:0 8px 24px rgba(0,0,0,.28); animation:csIn .35s ease both; }
+.cs-kicker { font-size:10px; letter-spacing:1.8px; text-transform:uppercase; color:var(--acc-2); font-weight:700; }
+.cs-back { display:inline-flex; align-items:center; gap:8px; padding:9px 12px; border:1px solid var(--border); border-radius:11px; color:var(--text-2); background:rgba(255,255,255,.025); transition:.2s; }
+.cs-back:hover { transform:translateX(-3px); border-color:var(--border-active); color:var(--text); }
+.cs-input { width:100%; border:1px solid var(--border); border-radius:11px; background:#0E1A2A; color:var(--text); padding:11px 13px; outline:none; font-size:14px; }
+.cs-input:focus { border-color:var(--border-active); box-shadow:0 0 0 3px rgba(56,189,248,.06); }
+.cs-btn { display:inline-flex; align-items:center; justify-content:center; gap:7px; border:1px solid rgba(56,189,248,.3); border-radius:11px; background:linear-gradient(135deg,#174d72,#1f6f9e); color:#eaf8ff; padding:10px 14px; font-size:13px; font-weight:600; transition:.2s; }
+.cs-btn:hover { transform:translateY(-1px); filter:brightness(1.08); }
+.cs-item { display:flex; align-items:center; gap:12px; border:1px solid var(--border); border-radius:14px; background:rgba(255,255,255,.025); padding:13px; transition:.2s; }
+.cs-item:hover { transform:translateY(-2px); border-color:var(--border-active); background:rgba(56,189,248,.045); }
+.cs-stat { border:1px solid var(--border); border-radius:14px; background:rgba(255,255,255,.025); padding:15px; }
+.cs-stat span { display:block; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--text-3); }
+.cs-stat b { display:block; margin-top:7px; font-size:18px; color:var(--text); }
+@keyframes csIn { from { opacity:0; transform:translateY(10px) scale(.99); filter:blur(2px); } to { opacity:1; transform:none; filter:none; } }
 
 ::-webkit-scrollbar { width: 7px; height: 7px; }
 ::-webkit-scrollbar-track { background: #061426; }
