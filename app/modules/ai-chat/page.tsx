@@ -1,0 +1,11 @@
+'use client'
+
+import Link from 'next/link'
+import { ArrowLeft, Bot, Send, Sparkles } from 'lucide-react'
+import { useState } from 'react'
+
+export default function AIChat(){
+ const [input,setInput]=useState(''); const [messages,setMessages]=useState<{role:'user'|'ai';text:string}[]>([{role:'ai',text:'AI Assistant D.KERJA siap membantu pekerjaan kamu.'}])
+ const send=()=>{const text=input.trim();if(!text)return;setMessages(v=>[...v,{role:'user',text},{role:'ai',text:'Pesan diterima. AI workspace siap dipasangkan ke provider/API yang kamu gunakan.'}]);setInput('')}
+ return <main className="min-h-screen bg-[#040d18] p-5 text-slate-200 sm:p-8 lg:p-12"><div className="page-enter mx-auto max-w-5xl"><Link href="/" className="menu-item inline-flex items-center gap-2 px-3 py-2 text-sm text-slate-400"><ArrowLeft size={16}/> Kembali</Link><div className="mt-7 flex items-center gap-3"><div className="grid size-12 place-items-center rounded-2xl border border-cyan-900 bg-[#092235] text-cyan-400"><Bot size={23}/></div><div><div className="text-xs tracking-[.2em] text-cyan-500">D.KERJA / AI ASSISTANT</div><h1 className="mt-1 text-3xl font-bold">AI Chat</h1></div></div><section className="mt-6 overflow-hidden rounded-2xl border border-[#183047] bg-[#08182a]"><div className="min-h-[430px] space-y-4 p-5">{messages.map((m,i)=><div key={i} className={m.role==='user'?'ml-auto max-w-[80%] rounded-2xl rounded-br-md border border-cyan-900 bg-[#092235] p-4 text-sm':'max-w-[80%] rounded-2xl rounded-bl-md border border-[#183047] bg-[#071726] p-4 text-sm text-slate-400'}>{m.role==='ai'&&<div className="mb-2 flex items-center gap-2 text-xs text-cyan-400"><Sparkles size={13}/> D.KERJA AI</div>}{m.text}</div>)}</div><div className="border-t border-[#183047] p-4"><div className="flex gap-3"><input value={input} onChange={e=>setInput(e.target.value)} onKeyDown={e=>{if(e.key==='Enter')send()}} placeholder="Tulis pesan..." className="flex-1 rounded-xl border border-[#183047] bg-[#071726] px-4 py-3 text-sm outline-none focus:border-cyan-800"/><button onClick={send} className="grid size-12 place-items-center rounded-xl border border-cyan-800 bg-cyan-950/40 text-cyan-300 hover:bg-cyan-900/30"><Send size={17}/></button></div></div></section></div></main>
+}
